@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bharat Kumar Paudel | Civil Engineer & PMP</title>
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy2: #112240;
+    --gold: #c9a84c;
+    --gold2: #e2c07a;
+    --white: #f0f4ff;
+    --gray: #8892b0;
+    --light: #ccd6f6;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', sans-serif; background: var(--navy); color: var(--light); }
+
+  nav {
+    position: fixed; top:0; width:100%; z-index:999;
+    background: rgba(10,22,40,0.95); backdrop-filter: blur(8px);
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 1rem 4rem; border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .logo { font-size:1.2rem; font-weight:700; color:var(--gold); letter-spacing:1px; }
+  nav ul { list-style:none; display:flex; gap:2rem; }
+  nav ul a { color:var(--light); text-decoration:none; font-size:0.9rem; letter-spacing:0.5px; transition:color 0.3s; }
+  nav ul a:hover { color:var(--gold); }
+
+  #hero {
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:6rem 2rem 4rem;
+    background: radial-gradient(ellipse at top, #1a2f50 0%, var(--navy) 70%);
+    position:relative; overflow:hidden;
+  }
+  #hero::before { content:''; position:absolute; width:600px; height:600px; border-radius:50%; border: 1px solid rgba(201,168,76,0.1); top:50%; left:50%; transform:translate(-50%,-50%); }
+  #hero::after { content:''; position:absolute; width:900px; height:900px; border-radius:50%; border: 1px solid rgba(201,168,76,0.05); top:50%; left:50%; transform:translate(-50%,-50%); }
+  .hero-content { position:relative; z-index:1; }
+  .hero-tag { color:var(--gold); font-size:1rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:1rem; }
+  .hero-name { font-size:clamp(2.5rem,6vw,5rem); font-weight:800; color:var(--white); line-height:1.1; margin-bottom:1rem; }
+  .hero-title { font-size:1.2rem; color:var(--gray); margin-bottom:0.6rem; }
+  .hero-title span { color:var(--gold2); }
+  .hero-pmp { color:var(--gold); font-size:0.95rem; margin-bottom:0.4rem; font-weight:600; }
+  .hero-location { font-size:0.95rem; color:var(--gray); margin-bottom:2rem; }
+  .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:2rem; }
+  .btn-primary { padding:0.8rem 2rem; background:var(--gold); color:var(--navy); border:none; border-radius:4px; font-weight:700; cursor:pointer; text-decoration:none; font-size:0.95rem; transition:all 0.3s; }
+  .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); }
+  .btn-outline { padding:0.8rem 2rem; background:transparent; color:var(--gold); border:1px solid var(--gold); border-radius:4px; font-weight:600; text-decoration:none; font-size:0.95rem; transition:all 0.3s; }
+  .btn-outline:hover { background:rgba(201,168,76,0.1); transform:translateY(-2px); }
+  .social-links { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+  .social-links a { color:var(--gray); text-decoration:none; font-size:0.9rem; padding:0.4rem 1rem; border:1px solid rgba(201,168,76,0.2); border-radius:20px; transition:all 0.3s; }
+  .social-links a:hover { color:var(--gold); border-color:var(--gold); }
+
+  section { padding: 6rem 2rem; max-width:1100px; margin:0 auto; }
+  .section-title { font-size:2rem; font-weight:700; color:var(--white); margin-bottom:0.5rem; position:relative; display:inline-block; }
+  .section-title::after { content:''; display:block; height:3px; background:var(--gold); width:60%; margin-top:6px; border-radius:2px; }
+  .section-sub { color:var(--gray); margin-bottom:3rem; margin-top:0.5rem; }
+
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+  .about-img { width:100%; aspect-ratio:1; border-radius:8px; background: linear-gradient(135deg, #1a3a5c, #0d2137); display:flex; align-items:center; justify-content:center; font-size:6rem; border:2px solid rgba(201,168,76,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .about-text p { color:var(--gray); line-height:1.8; margin-bottom:1rem; }
+  .stats { display:flex; gap:2rem; margin-top:2rem; flex-wrap:wrap; }
+  .stat { text-align:center; }
+  .stat-num { font-size:2rem; font-weight:800; color:var(--gold); }
+  .stat-label { font-size:0.8rem; color:var(--gray); text-transform:uppercase; letter-spacing:1px; }
+
+  #skills { background: var(--navy2); max-width:100%; padding:6rem 2rem; }
+  #skills > div { max-width:1100px; margin:0 auto; }
+  .skills-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1.5rem; }
+  .skill-card { background:var(--navy); border:1px solid rgba(201,168,76,0.15); border-radius:8px; padding:1.5rem; transition:all 0.3s; }
+  .skill-card:hover { border-color:var(--gold); transform:translateY(-4px); }
+  .skill-icon { font-size:2rem; margin-bottom:0.8rem; }
+  .skill-card h3 { color:var(--white); font-size:1rem; margin-bottom:0.5rem; }
+  .skill-card p { color:var(--gray); font-size:0.85rem; line-height:1.6; }
+
+  .timeline { position:relative; padding-left:2rem; }
+  .timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:linear-gradient(to bottom, var(--gold), transparent); }
+  .tl-item { position:relative; margin-bottom:3rem; padding-left:1.5rem; }
+  .tl-item::before { content:''; position:absolute; left:-2.4rem; top:6px; width:12px; height:12px; border-radius:50%; background:var(--gold); border:2px solid var(--navy); }
+  .tl-date { color:var(--gold); font-size:0.85rem; font-weight:600; letter-spacing:1px; margin-bottom:0.3rem; }
+  .tl-role { color:var(--white); font-size:1.1rem; font-weight:700; }
+  .tl-company { color:var(--gold2); font-size:0.95rem; margin-bottom:0.5rem; }
+  .tl-location { color:var(--gray); font-size:0.82rem; margin-bottom:0.5rem; font-style:italic; }
+  .tl-desc { color:var(--gray); font-size:0.9rem; line-height:1.7; }
+  .tl-desc li { margin-left:1.2rem; margin-bottom:0.3rem; }
+
+  #projects { background:var(--navy2); max-width:100%; padding:6rem 2rem; }
+  #projects > div { max-width:1100px; margin:0 auto; }
+  .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.5rem; }
+  .proj-card { background:var(--navy); border:1px solid rgba(201,168,76,0.15); border-radius:8px; overflow:hidden; transition:all 0.3s; }
+  .proj-card:hover { transform:translateY(-6px); border-color:var(--gold); box-shadow:0 12px 40px rgba(0,0,0,0.4); }
+  .proj-img { height:160px; display:flex; align-items:center; justify-content:center; font-size:4rem; background:linear-gradient(135deg,#0d2137,#1a3a5c); }
+  .proj-body { padding:1.5rem; }
+  .proj-tag { font-size:0.75rem; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem; }
+  .proj-body h3 { color:var(--white); font-size:1.1rem; margin-bottom:0.5rem; }
+  .proj-body p { color:var(--gray); font-size:0.85rem; line-height:1.6; }
+  .proj-meta { display:flex; gap:1rem; margin-top:0.8rem; flex-wrap:wrap; }
+  .proj-meta span { font-size:0.78rem; color:var(--gray); background:rgba(201,168,76,0.08); padding:0.3rem 0.6rem; border-radius:3px; }
+  .proj-outcome { margin-top:1rem; padding:0.5rem 0.8rem; background:rgba(201,168,76,0.08); border-left:3px solid var(--gold); border-radius:2px; font-size:0.82rem; color:var(--gold2); }
+
+  .cert-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.5rem; }
+  .cert-card { background:var(--navy2); border:1px solid rgba(201,168,76,0.2); border-radius:8px; padding:1.5rem; text-align:center; transition:all 0.3s; }
+  .cert-card:hover { border-color:var(--gold); transform:translateY(-3px); }
+  .cert-icon { font-size:2.5rem; margin-bottom:0.8rem; }
+  .cert-card h3 { color:var(--white); font-size:0.95rem; margin-bottom:0.3rem; }
+  .cert-card p { color:var(--gray); font-size:0.82rem; }
+  .cert-badge { display:inline-block; margin-top:0.5rem; font-size:0.75rem; color:var(--gold); border:1px solid var(--gold); padding:0.2rem 0.6rem; border-radius:10px; }
+
+  .lang-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; margin-bottom:3rem; }
+  .lang-card { background:var(--navy2); border:1px solid rgba(201,168,76,0.15); border-radius:8px; padding:1.2rem; text-align:center; }
+  .lang-card h3 { color:var(--white); font-size:1rem; margin-bottom:0.3rem; }
+  .lang-card p { color:var(--gold2); font-size:0.85rem; }
+
+  #contact { background:var(--navy2); max-width:100%; padding:6rem 2rem; }
+  #contact > div { max-width:700px; margin:0 auto; text-align:center; }
+  #contact p.intro { color:var(--gray); line-height:1.8; margin-bottom:2rem; }
+  .contact-info { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem; }
+  .contact-item { display:flex; align-items:center; gap:0.5rem; color:var(--light); font-size:0.9rem; }
+  .contact-form { display:grid; gap:1rem; text-align:left; }
+  .contact-form input, .contact-form textarea { width:100%; padding:0.9rem 1rem; background:var(--navy); border:1px solid rgba(201,168,76,0.2); border-radius:4px; color:var(--light); font-size:0.95rem; font-family:inherit; transition:border 0.3s; }
+  .contact-form input:focus, .contact-form textarea:focus { outline:none; border-color:var(--gold); }
+  .contact-form textarea { height:130px; resize:vertical; }
+  .contact-form button { padding:0.9rem; background:var(--gold); color:var(--navy); border:none; border-radius:4px; font-weight:700; font-size:1rem; cursor:pointer; transition:all 0.3s; }
+  .contact-form button:hover { background:var(--gold2); }
+
+  footer { text-align:center; padding:2rem; border-top:1px solid rgba(201,168,76,0.1); color:var(--gray); font-size:0.85rem; }
+  footer span { color:var(--gold); }
+
+  @media(max-width:768px) {
+    nav { padding:1rem 1.5rem; }
+    nav ul { gap:1rem; }
+    .about-grid { grid-template-columns:1fr; }
+    .about-img { max-width:200px; margin:0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">BKP</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Credentials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <p class="hero-tag">Civil Engineer &amp; Project Management Professional</p>
+    <h1 class="hero-name">Bharat Kumar<br/>Paudel</h1>
+    <p class="hero-title">9+ Years in <span>Hydropower</span>, <span>Infrastructure</span> &amp; <span>International Procurement</span></p>
+    <p class="hero-pmp">🏅 PMP® Certified — Project Management Institute</p>
+    <p class="hero-location">📍 Yokohama, Kanagawa, Japan &nbsp;|&nbsp; 🇳🇵 Nepali Civil Engineer</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/bharat-kumar-paudel-pmp-%C2%AE-737119120/" target="_blank">💼 LinkedIn</a>
+      <a href="mailto:er.bharatpaudel07@gmail.com">📧 Email Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <p class="section-sub">Who I am and what drives me</p>
+  <div class="about-grid">
+    <div class="about-img">👷</div>
+    <div class="about-text">
+      <p>I am Bharat Kumar Paudel, a results-driven Civil Engineer and PMP® Certified Project Management Professional with over 9 years of progressive experience spanning hydropower construction, agricultural infrastructure development, flood rehabilitation, and international engineering procurement.</p>
+      <p>My career has taken me from remote mountain terrains of Nepal — supervising hydropower civil works, managing flood protection projects, and leading IFAD-funded agricultural infrastructure programmes — to Japan, where I currently manage international procurement and supply chain for major steel plant projects at <strong style="color:var(--gold2)">JP Steel Plantech Co. Ltd.</strong></p>
+      <p>I combine deep technical civil engineering expertise with structured project management practices (PMBOK), cross-cultural communication, and multilingual capabilities across Nepali, English, Japanese, and Hindi.</p>
+      <div class="stats">
+        <div class="stat"><div class="stat-num">9+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Projects Delivered</div></div>
+        <div class="stat"><div class="stat-num">$1M+</div><div class="stat-label">Projects Managed</div></div>
+        <div class="stat"><div class="stat-num">2</div><div class="stat-label">Countries</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div>
+  <h2 class="section-title">Skills &amp; Expertise</h2>
+  <p class="section-sub">Technical knowledge and management capabilities</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">📋</div>
+      <h3>Project Management (PMBOK)</h3>
+      <p>Full project lifecycle — initiation, planning, execution, monitoring & control, and closure. WBS, schedule & cost baseline, Earned Value Management.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚡</div>
+      <h3>Hydropower Civil Works</h3>
+      <p>Surface headworks, penstocks, powerhouses, river diversion, anchor blocks, and access road construction in challenging mountain terrain.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🌊</div>
+      <h3>Flood Risk & Rehabilitation</h3>
+      <p>Post-flood damage assessment, protection works design, emergency construction sequencing, and multi-client coordination.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🚢</div>
+      <h3>International Procurement</h3>
+      <p>RFQ issuance, vendor evaluation, Purchase Order management, supply chain coordination for major steel plant equipment across global suppliers.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🌾</div>
+      <h3>Agricultural Infrastructure</h3>
+      <p>Rural roads, irrigation systems, and market infrastructure under IFAD-funded programmes with community co-financing models.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🖥️</div>
+      <h3>Engineering Software</h3>
+      <p>Primavera P6, AutoCAD, MS Project, ERP Systems (Procurement), MS Office Suite (Excel, Word, PowerPoint) — Advanced proficiency.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2 class="section-title">Work Experience</h2>
+  <p class="section-sub">My professional journey across Nepal and Japan</p>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-date">April 2025 – Present</div>
+      <div class="tl-role">Engineer — Procurement &amp; Project Controls</div>
+      <div class="tl-company">JP Steel Plantech Co. Ltd.</div>
+      <div class="tl-location">📍 Yokohama, Japan</div>
+      <div class="tl-desc">
+        <ul>
+          <li>Manage end-to-end vendor selection, RFQ issuance, technical-commercial evaluation, and Purchase Order execution for major steel plant equipment</li>
+          <li>Coordinate with international vendors for EcoArc furnaces, Continuous Casting machines, Sintering Plants, and Bar Rolling Mills</li>
+          <li>Monitor vendor performance and manage schedule, quality, and supply-chain risks across global supply chains</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">September 2021 – December 2024</div>
+      <div class="tl-role">Construction Manager / Technical Project Manager</div>
+      <div class="tl-company">Quality Smart Construction &amp; Suppliers Pvt. Ltd.</div>
+      <div class="tl-location">📍 Kathmandu, Nepal</div>
+      <div class="tl-desc">
+        <ul>
+          <li>Led end-to-end construction of Surface Headworks for Thulokhola HPP (21.3 MW) — NPR 95,403,947 (~USD 795K) subcontract — managing a team of 5–8 across challenging mountain terrain in Myagdi District</li>
+          <li>Served as sole Project Manager for post-flood damage assessment and protection works across three hydropower projects totaling NPR 12,790,487 (~USD 107K)</li>
+          <li>Developed WBS, schedules, cost baselines, and risk mitigation plans aligned with PMBOK standards</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">July 2019 – April 2021</div>
+      <div class="tl-role">Lead Infrastructure Engineer (Agriculture)</div>
+      <div class="tl-company">Ministry of Agriculture / ASDP / PCU — IFAD Funded</div>
+      <div class="tl-location">📍 Jajarkot, Karnali Province, Nepal</div>
+      <div class="tl-desc">
+        <ul>
+          <li>Led planning, design, and execution oversight of 20 small-scale agricultural infrastructure subprojects — rural roads, irrigation, and market infrastructure — NPR 40,000,000 total value</li>
+          <li>Negotiated 20% community co-financing commitment and submitted regular variance reports to PCO Surkhet (programme PMO)</li>
+          <li>Obtained formal final acceptance of all 20 infrastructure designs from Ministry of Agriculture and IFAD sponsors</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">November 2018 – June 2019</div>
+      <div class="tl-role">Design Engineer</div>
+      <div class="tl-company">S.D. Engineering Consultancy Pvt. Ltd.</div>
+      <div class="tl-location">📍 Kathmandu, Nepal</div>
+      <div class="tl-desc">Led design and review of rural road infrastructure, quantity surveying, BOQ preparation, and technical report writing for multiple concurrent infrastructure projects.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">November 2016 – September 2018</div>
+      <div class="tl-role">Resident Engineer (Client Side)</div>
+      <div class="tl-company">Pashupati Environmental Power Company Pvt. Ltd.</div>
+      <div class="tl-location">📍 Gorkha, Gandaki Province, Nepal</div>
+      <div class="tl-desc">Sole Resident Engineer for the full construction phase of Lower Chhotekhola Hydropower Project (1 MW), NPR 320,000,000 investment — overseeing head pond, penstock, powerhouse, and access road. Used Primavera P6 for schedule management.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">April 2016 – November 2016</div>
+      <div class="tl-role">Civil Engineer — Technical Advisor</div>
+      <div class="tl-company">DLPIU, Government of Nepal</div>
+      <div class="tl-location">📍 Dolakha, Nepal</div>
+      <div class="tl-desc">Provided technical advisory to grant recipients for private housing reconstruction following the 2015 Nepal earthquake, ensuring compliance with earthquake-resistant building codes.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">April 2015 – March 2016</div>
+      <div class="tl-role">Consultant's Site Engineer</div>
+      <div class="tl-company">Units Engineering Consultancy Pvt. Ltd.</div>
+      <div class="tl-location">📍 Dailekh, Karnali Province, Nepal</div>
+      <div class="tl-desc">Supervised civil construction for Dwari Khola Small Hydropower Project (3.75 MW) and executed surveying for a 16.5 km 33 KV transmission line.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div>
+  <h2 class="section-title">Featured Projects</h2>
+  <p class="section-sub">Key infrastructure projects I have led or contributed to</p>
+  <div class="projects-grid">
+
+    <div class="proj-card">
+      <div class="proj-img">⚡</div>
+      <div class="proj-body">
+        <div class="proj-tag">Hydropower | Construction Management</div>
+        <h3>Thulokhola HPP Surface Headworks (21.3 MW)</h3>
+        <p>Led end-to-end construction of surface headworks including river diversion structures, excavation, and concreting in mountainous terrain of Myagdi District, Nepal.</p>
+        <div class="proj-meta">
+          <span>📅 Nov 2022 – Dec 2024</span>
+          <span>💰 NPR 95,403,947 (~USD 795K)</span>
+          <span>👥 Team of 5–8</span>
+        </div>
+        <div class="proj-outcome">✅ Full PMBOK lifecycle — formal handover achieved</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img">🌊</div>
+      <div class="proj-body">
+        <div class="proj-tag">Flood Rehabilitation | Multi-Client PM</div>
+        <h3>Flood Protection Works — 3 Hydropower Projects</h3>
+        <p>Sole Project Manager for post-flood damage assessment and protection works across Supermai-A, Supermai, and Sagarmatha Jalabidhyut Company simultaneously.</p>
+        <div class="proj-meta">
+          <span>📅 Sep 2021 – Oct 2022</span>
+          <span>💰 NPR 12,790,487 (~USD 107K)</span>
+          <span>🏢 3 Clients</span>
+        </div>
+        <div class="proj-outcome">✅ Formal acceptance obtained from all 3 clients</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img">🌾</div>
+      <div class="proj-body">
+        <div class="proj-tag">Agricultural Infrastructure | IFAD-Funded</div>
+        <h3>ASDP Agricultural Infrastructure Programme</h3>
+        <p>Led 20 subprojects covering rural roads, irrigation systems, and market infrastructure under the IFAD-funded Agriculture Sector Development Programme in Jajarkot, Karnali.</p>
+        <div class="proj-meta">
+          <span>📅 Jul 2019 – Apr 2021</span>
+          <span>💰 NPR 40M (~USD 300K)</span>
+          <span>🏗️ 20 Subprojects</span>
+        </div>
+        <div class="proj-outcome">✅ All 20 designs formally accepted by Ministry & IFAD</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img">🏭</div>
+      <div class="proj-body">
+        <div class="proj-tag">International Procurement | Steel Plant</div>
+        <h3>Steel Plant Equipment Procurement — JP Steel Plantech</h3>
+        <p>Managing global procurement for major steel plant projects including EcoArc furnaces, Continuous Casting machines, Sintering Plants, and Bar Rolling Mills across international vendors.</p>
+        <div class="proj-meta">
+          <span>📅 Apr 2025 – Present</span>
+          <span>🌍 Yokohama, Japan & Global</span>
+          <span>🏢 JP Steel Plantech</span>
+        </div>
+        <div class="proj-outcome">✅ PMBOK-aligned supply chain execution</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img">💧</div>
+      <div class="proj-body">
+        <div class="proj-tag">Hydropower | Resident Engineer</div>
+        <h3>Lower Chhotekhola Hydropower Project (1 MW)</h3>
+        <p>Sole Resident Engineer on client side overseeing all civil construction — head pond, anchor blocks, penstock pipe installation, access road, retaining structures, and powerhouse.</p>
+        <div class="proj-meta">
+          <span>📅 Nov 2016 – Sep 2018</span>
+          <span>💰 NPR 320M (~USD 2.4M)</span>
+          <span>📍 Gorkha, Nepal</span>
+        </div>
+        <div class="proj-outcome">✅ Successfully commissioned — Primavera P6 scheduling used</div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img">🏘️</div>
+      <div class="proj-body">
+        <div class="proj-tag">Disaster Recovery | Technical Advisory</div>
+        <h3>Post-Earthquake Housing Reconstruction</h3>
+        <p>Provided technical guidance to grant recipients for private housing reconstruction following the 2015 Nepal earthquake, under Government of Nepal's DLPIU programme in Dolakha.</p>
+        <div class="proj-meta">
+          <span>📅 Apr 2016 – Nov 2016</span>
+          <span>🏛️ Government of Nepal</span>
+          <span>📍 Dolakha, Nepal</span>
+        </div>
+        <div class="proj-outcome">✅ Earthquake-resistant building code compliance ensured</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <h2 class="section-title">Credentials &amp; Education</h2>
+  <p class="section-sub">Academic background, certifications, and languages</p>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon">🏅</div>
+      <h3>Project Management Professional (PMP®)</h3>
+      <p>Project Management Institute (PMI)</p>
+      <p>PMI ID: 7212879</p>
+      <span class="cert-badge">✅ Certified — 2026</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📜</div>
+      <h3>Civil Engineer 'A' License</h3>
+      <p>Nepal Engineering Council (NEC)</p>
+      <span class="cert-badge">Licensed</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🎓</div>
+      <h3>B.E. Civil Engineering</h3>
+      <p>Himalaya College of Engineering, Tribhuvan University, Nepal</p>
+      <p>2010 – 2014 &nbsp;|&nbsp; 71.47%</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">⚡</div>
+      <h3>Diploma in Electrical Engineering</h3>
+      <p>Western Region Campus, Tribhuvan University, Pokhara</p>
+      <p>2006 – 2010 &nbsp;|&nbsp; 79.86%</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📚</div>
+      <h3>PMP Exam Prep (35 Contact Hours)</h3>
+      <p>TIA Education Group — Andrew Ramdayal, Udemy</p>
+      <span class="cert-badge">Completed March 2026</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏗️</div>
+      <h3>Construction Quality & Supervision</h3>
+      <p>Build Back Safer — IOM and RedR India</p>
+      <span class="cert-badge">Certified</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏛️</div>
+      <h3>Public Procurement &amp; e-GP</h3>
+      <p>Nepal Engineers' Association, Karnali Province</p>
+      <span class="cert-badge">Certified</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏠</div>
+      <h3>Earthquake Resistant Construction</h3>
+      <p>Baliyo Ghar Program, DLPIU — Trainer of Trainers</p>
+      <span class="cert-badge">Certified Trainer</span>
+    </div>
+  </div>
+
+  <br/><br/>
+  <h3 style="color:var(--white);margin-bottom:1rem;">Languages</h3>
+  <div class="lang-grid">
+    <div class="lang-card"><h3>🇳🇵 Nepali</h3><p>Native / Mother Tongue</p></div>
+    <div class="lang-card"><h3>🇬🇧 English</h3><p>Professional Working Proficiency</p></div>
+    <div class="lang-card"><h3>🇯🇵 Japanese</h3><p>JLPT N3 Level</p></div>
+    <div class="lang-card"><h3>🇮🇳 Hindi</h3><p>Conversational Proficiency</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div>
+  <h2 class="section-title">Get In Touch</h2>
+  <p class="section-sub">Let's discuss your next project or opportunity</p>
+  <p class="intro">Whether you have a project opportunity, a collaboration idea, or simply want to connect — I'd love to hear from you.</p>
+  <div class="contact-info">
+    <div class="contact-item"><span>📧</span><span>er.bharatpaudel07@gmail.com</span></div>
+    <div class="contact-item"><span>📞</span><span>090-7883-4483 (Japan)</span></div>
+    <div class="contact-item"><span>📍</span><span>Yokohama, Kanagawa, Japan</span></div>
+    <div class="contact-item"><span>💼</span><a href="https://www.linkedin.com/in/bharat-kumar-paudel-pmp-%C2%AE-737119120/" target="_blank" style="color:var(--gold2);text-decoration:none;">LinkedIn Profile</a></div>
+  </div>
+  <div class="contact-form">
+    <input type="text" placeholder="Your Name"/>
+    <input type="email" placeholder="Your Email"/>
+    <input type="text" placeholder="Subject"/>
+    <textarea placeholder="Your Message"></textarea>
+    <button type="button">Send Message</button>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>© 2026 <span>Bharat Kumar Paudel</span> &nbsp;|&nbsp; Civil Engineer &amp; PMP® &nbsp;|&nbsp; Yokohama, Japan</p>
+</footer>
+
+</body>
+</html>
