@@ -49,7 +49,8 @@
   .section-sub { color:var(--gray); margin-bottom:3rem; margin-top:0.5rem; }
 
   .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
-  .about-img { width:100%; aspect-ratio:1; border-radius:8px; background:linear-gradient(135deg,#1a3a5c,#0d2137); display:flex; align-items:center; justify-content:center; font-size:6rem; border:2px solid rgba(201,168,76,0.3); box-shadow:0 20px 60px rgba(0,0,0,0.4); }
+  .about-img { width:100%; aspect-ratio:1; border-radius:8px; overflow:hidden; background:linear-gradient(135deg,#1a3a5c,#0d2137); display:flex; align-items:center; justify-content:center; font-size:6rem; border:2px solid rgba(201,168,76,0.3); box-shadow:0 20px 60px rgba(0,0,0,0.4); }
+  .about-img img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
   .about-text p { color:var(--gray); line-height:1.8; margin-bottom:1rem; }
   .stats { display:flex; gap:2rem; margin-top:2rem; flex-wrap:wrap; }
   .stat { text-align:center; }
@@ -147,7 +148,7 @@
     nav ul { gap:0.8rem; }
     nav ul a { font-size:0.78rem; }
     .about-grid { grid-template-columns:1fr; }
-    .about-img { max-width:200px; margin:0 auto; }
+    .about-img { max-width:260px; margin:0 auto; }
   }
 </style>
 </head>
@@ -171,7 +172,7 @@
   <div class="hero-content">
     <p class="hero-tag">Civil Engineer &amp; Project Management Professional</p>
     <h1 class="hero-name">Bharat Kumar<br/>Paudel</h1>
-    <p class="hero-title">9+ Years in <span>Hydropower</span>, <span>Infrastructure</span> &amp; <span>International Procurement</span></p>
+    <p class="hero-title">9+ Years in <span>Hydropower</span>, <span>Infrastructure</span> &amp; <span>Project Execution</span></p>
     <p class="hero-pmp">🏅 PMP® Certified — Project Management Institute</p>
     <p class="hero-location">📍 Yokohama, Kanagawa, Japan &nbsp;|&nbsp; 🇳🇵 Nepali Civil Engineer</p>
     <div class="hero-btns">
@@ -190,10 +191,11 @@
   <h2 class="section-title">About Me</h2>
   <p class="section-sub">Who I am and what drives me</p>
   <div class="about-grid">
-    <div class="about-img">👷</div>
+    <!-- Profile photo: upload your picture to the GitHub "images" folder as profile.jpg -->
+    <div class="about-img"><img src="https://raw.githubusercontent.com/pvharat12/portfolio-website/main/images/profile.jpg" alt="Bharat Kumar Paudel"/></div>
     <div class="about-text">
-      <p>I am Bharat Kumar Paudel, a results-driven Civil Engineer and PMP® Certified Project Management Professional with over 9 years of progressive experience spanning hydropower construction, agricultural infrastructure development, flood rehabilitation, and international engineering procurement.</p>
-      <p>My career has taken me from remote mountain terrains of Nepal — supervising hydropower civil works, managing flood protection projects, and leading IFAD-funded agricultural infrastructure programmes — to Japan, where I currently manage international procurement and supply chain for major steel plant projects at <strong style="color:var(--gold2)">JP Steel Plantech Co. Ltd.</strong></p>
+      <p>I am Bharat Kumar Paudel, a results-driven Civil Engineer and PMP® Certified Project Management Professional with over 9 years of progressive experience spanning hydropower construction, agricultural infrastructure development, flood rehabilitation, and international plant project execution.</p>
+      <p>My career has taken me from remote mountain terrains of Nepal — supervising hydropower civil works, managing flood protection projects, and leading IFAD-funded agricultural infrastructure programmes — to Japan, where I currently drive end-to-end project delivery for major steel plant equipment at <strong style="color:var(--gold2)">JP Steel Plantech Co. Ltd.</strong> I manage each package from order placement through manufacturing, inspection, and shipment to delivery, keeping scope, schedule, cost, and quality on track while coordinating engineering, finance, and international suppliers.</p>
       <p>I combine deep technical civil engineering expertise with structured project management practices (PMBOK), cross-cultural communication, and multilingual capabilities across Nepali, English, Japanese, and Hindi.</p>
       <div class="stats">
         <div class="stat"><div class="stat-num">9+</div><div class="stat-label">Years Experience</div></div>
@@ -214,9 +216,9 @@
     <div class="skill-card"><div class="skill-icon">📋</div><h3>Project Management (PMBOK)</h3><p>Full project lifecycle — initiation, planning, execution, monitoring & control, and closure. WBS, schedule & cost baseline, Earned Value Management.</p></div>
     <div class="skill-card"><div class="skill-icon">⚡</div><h3>Hydropower Civil Works</h3><p>Surface headworks, penstocks, powerhouses, river diversion, anchor blocks, and access road construction in challenging mountain terrain.</p></div>
     <div class="skill-card"><div class="skill-icon">🌊</div><h3>Flood Risk & Rehabilitation</h3><p>Post-flood damage assessment, protection works design, emergency construction sequencing, and multi-client coordination.</p></div>
-    <div class="skill-card"><div class="skill-icon">🚢</div><h3>International Procurement</h3><p>RFQ issuance, vendor evaluation, Purchase Order management, supply chain coordination for major steel plant equipment across global suppliers.</p></div>
+    <div class="skill-card"><div class="skill-icon">🚢</div><h3>End-to-End Project Delivery</h3><p>Order-to-delivery execution for major plant equipment — vendor coordination, manufacturing and inspection follow-up, logistics, and schedule, cost, and quality control across global suppliers.</p></div>
     <div class="skill-card"><div class="skill-icon">🌾</div><h3>Agricultural Infrastructure</h3><p>Rural roads, irrigation systems, and market infrastructure under IFAD-funded programmes with community co-financing models.</p></div>
-    <div class="skill-card"><div class="skill-icon">🖥️</div><h3>Engineering Software</h3><p>Primavera P6, AutoCAD, MS Project, ERP Systems (Procurement), MS Office Suite — Advanced proficiency.</p></div>
+    <div class="skill-card"><div class="skill-icon">🖥️</div><h3>Engineering Software</h3><p>Primavera P6, AutoCAD, MS Project, ERP Systems (Project Controls), MS Office Suite — Advanced proficiency.</p></div>
   </div>
 </div>
 </section>
@@ -232,9 +234,10 @@
       <div class="tl-company">JP Steel Plantech Co. Ltd.</div>
       <div class="tl-location">📍 Yokohama, Japan</div>
       <div class="tl-desc"><ul>
-        <li>Manage end-to-end vendor selection, RFQ issuance, technical-commercial evaluation, and Purchase Order execution for major steel plant equipment</li>
-        <li>Coordinate with international vendors for EcoArc furnaces, Continuous Casting machines, Sintering Plants, and Bar Rolling Mills</li>
-        <li>Monitor vendor performance and manage schedule, quality, and supply-chain risks across global supply chains</li>
+        <li>Drive end-to-end delivery of major steel plant equipment packages — from technical and commercial specification and vendor selection through order placement, manufacturing, inspection, shipment, and delivery</li>
+        <li>Keep each package aligned with the project schedule, cost baseline, and quality requirements, working with engineering, finance, and project management teams in the project ERP system</li>
+        <li>Coordinate international vendors for EcoArc furnaces, Continuous Casting machines, Sintering Plants, and Bar Rolling Mills, including expediting and logistics</li>
+        <li>Monitor vendor performance and proactively manage schedule, quality, and supply-chain risks, with clear stakeholder communication</li>
       </ul></div>
     </div>
     <div class="tl-item">
@@ -329,11 +332,11 @@
     <div class="proj-card">
       <div class="proj-img">🏭</div>
       <div class="proj-body">
-        <div class="proj-tag">International Procurement | Steel Plant</div>
-        <h3>Steel Plant Equipment Procurement — JP Steel Plantech</h3>
-        <p>Managing global procurement for major steel plant projects including EcoArc furnaces, Continuous Casting machines, Sintering Plants, and Bar Rolling Mills.</p>
+        <div class="proj-tag">Project Execution | Steel Plant</div>
+        <h3>Steel Plant Equipment Delivery — JP Steel Plantech</h3>
+        <p>Managing end-to-end delivery of major steel plant equipment — EcoArc furnaces, Continuous Casting machines, Sintering Plants, and Bar Rolling Mills — from order placement through manufacturing, inspection, and shipment, with international vendors.</p>
         <div class="proj-meta"><span>📅 Apr 2025 – Present</span><span>🌍 Yokohama, Japan & Global</span></div>
-        <div class="proj-outcome">✅ PMBOK-aligned supply chain execution</div>
+        <div class="proj-outcome">✅ PMBOK-aligned project execution</div>
       </div>
     </div>
     <div class="proj-card">
